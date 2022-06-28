@@ -1,0 +1,15 @@
+// *.proto file just say how the data goes.
+
+syntax = "proto3";
+
+message Number {
+    float value = 1;
+}
+
+service Calculator {
+    rpc SquareRoot(Number)
+    returns (Number) {}
+}
+
+// To generate protobuf files, run:
+// python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. calculator.proto
